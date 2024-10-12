@@ -20,7 +20,7 @@ const Home = () => {
       <div className="p-6 min-h-screen relative z-10">
         {/* Hero Section */}
         <div 
-          className="bg-[#141c33] text-[#fefeff] p-10 shadow-lg mb-6 backdrop-filter backdrop-blur-md bg-opacity-50" 
+          className="bg-[#141c33] text-[#fefeff] p-10 shadow-lg mb-6 backdrop-filter backdrop-blur-md bg-opacity-60" 
           style={{ borderRadius: '0.9rem' }} 
         >
           <Typography 
