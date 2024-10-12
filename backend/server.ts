@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-app.use(cors());
+app.use(cors());  // Enable Cross-Origin Resource Sharing (CORS)
 
+// Mock data for the highlights
 const mockData = [
   {
     sessionId: 1,
@@ -19,15 +20,16 @@ const mockData = [
       { time: 60, description: 'Saket makes an amazing comeback' }
     ],
     // Updated thumbnail URL
-    thumbnailUrl: 'https://i.postimg.cc/sggrQyhY/pexels-vladvictoria-10544231.jpg' 
+    thumbnailUrl: 'https://i.postimg.cc/sggrQyhY/pexels-vladvictoria-10544231.jpg'
   }
 ];
 
+// API route to get the highlights data
 app.get('/highlights', (req, res) => {
-  res.json(mockData);
+  res.json(mockData);  // Respond with the mock data
 });
 
-// Ensure that this log message is present to confirm the server is running
+// Ensure that the server is running on a specific port
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
