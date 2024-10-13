@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     // Update the API endpoint to your deployed URL
-    axios.get<Highlight[]>('https://backend-for-highlights-qys2p95ua-abhis-projects-08935107.vercel.app/api/highlights')
+    axios.get<Highlight[]>('https://backend-for-highlights-6ygxr65ft-abhis-projects-08935107.vercel.app/api/highlights') // Updated URL
       .then(response => setHighlights(response.data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);

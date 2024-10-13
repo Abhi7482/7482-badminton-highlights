@@ -12,23 +12,23 @@ const MatchDetail = () => {
   const [match, setMatch] = useState<Highlight | null>(null);
 
   useEffect(() => {
-    // Fetch highlights and find the selected match based on ID
-    axios.get<Highlight[]>('http://localhost:4000/highlights')
+    console.log("Match ID:", id);
+    axios.get<Highlight[]>('https://backend-for-highlights-qys2p95ua-abhis-projects-08935107.vercel.app/api/highlights')
       .then(response => {
+        console.log("API Response:", response.data);
         const selectedMatch = response.data.find(h => h.matchId === Number(id));
         setMatch(selectedMatch || null);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [id]);
 
-  // Show loading message if match is not yet loaded
   if (!match) {
     return <div>Loading...</div>;
   }
 
   return (
-    <AuroraBackground> {/* Wrap content with AuroraBackground */}
-      <div className="relative z-10 p-6"> {/* Ensure this div is above the AuroraBackground */}
+    <AuroraBackground>
+      <div className="relative z-10 p-6">
         <Typography 
           variant="h4" 
           className="text-center mb-4" 
@@ -38,7 +38,7 @@ const MatchDetail = () => {
         </Typography>
         <Paper 
           className="rounded-lg shadow-md" 
-          style={{ backgroundColor: '#141c33', borderRadius: '0.8rem', padding: '1rem' }} // Reduced padding
+          style={{ backgroundColor: '#141c33', borderRadius: '0.8rem', padding: '1rem' }}
         >
           <ReactPlayer 
             url={match.videoUrl} 
@@ -55,7 +55,6 @@ const MatchDetail = () => {
           Statistics
         </Typography>
         <div className="my-2">
-          {/* Loop through each team's statistics */}
           {Object.entries(match.teams).map(([teamName, team]) => (
             <div key={teamName} className="mb-2">
               <Typography variant="subtitle1" style={{ color: 'white' }}>{teamName}</Typography>
@@ -72,7 +71,6 @@ const MatchDetail = () => {
           Key Moments
         </Typography>
         <ul>
-          {/* List key moments of the match */}
           {match.keyMoments.map((moment, index) => (
             <li key={index} style={{ color: 'white' }}>
               {moment.time}s - {moment.description}
