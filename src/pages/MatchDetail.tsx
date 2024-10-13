@@ -1,3 +1,4 @@
+"use client"; // Add this line if needed based on your project setup
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { useEffect, useState } from 'react';
@@ -11,6 +12,7 @@ const MatchDetail = () => {
   const [match, setMatch] = useState<Highlight | null>(null);
 
   useEffect(() => {
+    // Fetch highlights and find the selected match based on ID
     axios.get<Highlight[]>('http://localhost:4000/highlights')
       .then(response => {
         const selectedMatch = response.data.find(h => h.matchId === Number(id));
@@ -19,6 +21,7 @@ const MatchDetail = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, [id]);
 
+  // Show loading message if match is not yet loaded
   if (!match) {
     return <div>Loading...</div>;
   }
@@ -52,6 +55,7 @@ const MatchDetail = () => {
           Statistics
         </Typography>
         <div className="my-2">
+          {/* Loop through each team's statistics */}
           {Object.entries(match.teams).map(([teamName, team]) => (
             <div key={teamName} className="mb-2">
               <Typography variant="subtitle1" style={{ color: 'white' }}>{teamName}</Typography>
@@ -68,6 +72,7 @@ const MatchDetail = () => {
           Key Moments
         </Typography>
         <ul>
+          {/* List key moments of the match */}
           {match.keyMoments.map((moment, index) => (
             <li key={index} style={{ color: 'white' }}>
               {moment.time}s - {moment.description}

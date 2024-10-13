@@ -10,7 +10,8 @@ const Home = () => {
   const [highlights, setHighlights] = useState<Highlight[]>([]);
 
   useEffect(() => {
-    axios.get<Highlight[]>('http://localhost:4000/highlights')
+    // Update the API endpoint to your deployed URL
+    axios.get<Highlight[]>('https://backend-for-highlights-qys2p95ua-abhis-projects-08935107.vercel.app/api/highlights')
       .then(response => setHighlights(response.data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
