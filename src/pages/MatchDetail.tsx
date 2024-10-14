@@ -13,7 +13,8 @@ const MatchDetail = () => {
 
   useEffect(() => {
     console.log("Match ID:", id);
-    axios.get<Highlight[]>('https://backend-for-highlights-qys2p95ua-abhis-projects-08935107.vercel.app/api/highlights')
+    // Update the API endpoint to your new deployed URL
+    axios.get<Highlight[]>('https://backend-highlights.netlify.app/.netlify/functions/highlights')
       .then(response => {
         console.log("API Response:", response.data);
         const selectedMatch = response.data.find(h => h.matchId === Number(id));
