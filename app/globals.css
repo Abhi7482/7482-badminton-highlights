@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --blue-500: #3b82f6; /* Tailwind's blue-500 */
-    --indigo-300: #60a5fa; /* Tailwind's indigo-300 */
-    --blue-300: #93c5fd; /* Tailwind's blue-300 */
-    --violet-200: #a78bfa; /* Tailwind's violet-200 */
-    --blue-400: #60a5fa; /* Tailwind's blue-400 */
-    --background: 0 0% 100%; /* Default background */
+    --blue-500: #3b82f6;
+    --indigo-300: #60a5fa;
+    --blue-300: #93c5fd;
+    --violet-200: #a78bfa;
+    --blue-400: #60a5fa;
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -37,7 +37,7 @@
   }
 
   .dark {
-    --background: 30 15% 25%; /* Change this to your desired color */
+    --background: 30 15% 25%;
     --foreground: 210 40% 98%;
     --card: 30 15% 25%;
     --card-foreground: 210 40% 98%;
@@ -66,15 +66,15 @@
 
 @layer components {
   .btn-hover {
-    @apply transition-all duration-300 ease-in-out transform; /* Transition for all properties */
+    @apply transition-all duration-300 ease-in-out transform;
   }
 
   .btn-hover:hover {
-    @apply bg-indigo-400 scale-105; /* Slightly darker shade and scale effect on hover */
+    @apply bg-indigo-400 scale-105;
   }
 
   .glass-effect {
-    @apply bg-white bg-opacity-10 backdrop-blur-md rounded-lg border border-white border-opacity-20; /* Applying the glass effect */
+    @apply bg-white bg-opacity-10 backdrop-blur-md rounded-lg border border-white border-opacity-20;
   }
 }
 
@@ -84,9 +84,8 @@
   }
 
   body {
-    @apply bg-background text-foreground; 
-    /* Set default to dark */
-    @apply dark:bg-background dark:text-foreground; /* Ensure the dark classes are applied */
-    @apply dark; /* Apply the dark class by default */
+    @apply bg-background text-foreground;
+    @apply dark:bg-background dark:text-foreground;
+    @apply dark;
   }
 }

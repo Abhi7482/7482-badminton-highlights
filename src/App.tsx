@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    // Set the dark class to the document element
+    
     document.documentElement.classList.add('dark');
   }, []);
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/match/:id" element={<MatchDetail />} />
       </Routes>
-      <Footer /> {/* Footer placed outside of Routes */}
+      <Footer /> {/* a */}
     </Router>
   );
 }
