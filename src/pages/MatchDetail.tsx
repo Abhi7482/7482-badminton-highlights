@@ -1,4 +1,4 @@
-"use client"; // Add this line if needed based on your project setup
+"use client";
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { useEffect, useState } from 'react';
@@ -13,7 +13,7 @@ const MatchDetail = () => {
 
   useEffect(() => {
     console.log("Match ID:", id);
-    // Update the API endpoint to your new deployed URL
+    // API endpoint to your new deployed URL
     axios.get<Highlight[]>('https://backend-highlights.netlify.app/.netlify/functions/highlights')
       .then(response => {
         console.log("API Response:", response.data);
